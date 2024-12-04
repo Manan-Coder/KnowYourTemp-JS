@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="wrapper">
+            <div class="logo"><a href="#">MyWeatherApp</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="search.html">Search City</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="center-wrapper">
+        <div class="result-card" id="cityID">
+            <h2>City: <span id="city">Loading...</span></h2>
+            <p>State: <span id="state">Loading...</span></p>
+            <p>Country: <span id="country">Loading...</span></p>
+            <p>Temperature: <span id="temperature_c">Loading...</span> </p>
+            <p>Local Time: <span id="localtime">Loading...</span></p>
+            <p>Day/Night: <span id="daynight">Loading...</span></p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Get weather data from localStorage
+            const storedData = localStorage.getItem("weatherData");
+
+            if (storedData) {
+                const result = JSON.parse(storedData);
+
+                // Select elements to display data
+                const cityName = document.getElementById('city');
+                const stateName = document.getElementById('state');
+                const countryName = document.getElementById('country');
+                const temp_c = document.getElementById('temperature_c');
+
+                const locTime = document.getElementById('localtime');
+                const daynight = document.getElementById('daynight');
+
+                // Display data from the API response
+                cityName.innerText = result.location.name;
+                stateName.innerText = result.location.region;
+                countryName.innerText = result.location.country;
+                temp_c.innerText = `${result.current.temp_c}°C, ${result.current.temp_f}°F`;
+
+                locTime.innerText = result.location.localtime;
+                daynight.innerText = result.current.is_day ? "Day" : "Night";
+                if (result.current.is_day != 1) { document.body.style.backgroundImage = "url('night-bg.jpg')"; }
+            } else {
+                alert("No weather data available. Please search again.");
+                window.location.href = "index.html"; // Redirect back if no data found
+            }
+        });
+    </script>
+    <div class="cloud"></div>
+    <div class="cloud2"></div>
+</body>
+
+</html>

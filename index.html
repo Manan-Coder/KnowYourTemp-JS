@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KnowYourTemp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+        <div class="wrapper">
+            <div class="logo"><a href="index.html">KnowYourTemp</a></div>
+            <input type="radio" name="slider" id="menu-btn">
+            <input type="radio" name="slider" id="close-btn">
+            <ul class="nav-links">
+                <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li>
+                    <a href="search.html">Search City</a>
+                </li>
+
+                <li><a href="feedback.html ">Feedback</a></li>
+            </ul>
+            <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+        </div>
+    </nav>
+    <div class="body-text">
+        <div class="title">Get weather data of cities all around the world </div>
+
+    </div>
+    <div class="cloud"></div>
+    <div class="cloud-back"></div>
+    <div class="button-container">
+        <a>
+            <button class="lets-button" id="button">Let's Go</button></a>
+    </div>
+    <div class="bird-container bird-container--one">
+    </div>
+
+    <!-- Flying Bird 2 -->
+    <div class="bird-container bird-container--two">
+    </div>
+
+    <!-- Flying Bird 3 -->
+    <div class="bird-container bird-container--three">
+    </div>
+    <script>
+        const button = document.getElementById("button")
+        button.addEventListener("click", function () {
+
+            setTimeout(() => {
+
+                window.location.href = "search.html"; // Replace "newPage.html" with your desired page
+
+            }, 2000); // Delay for 2 seconds (2000 milliseconds)
+
+        });
+    </script>
+</body>
+
+</html>
