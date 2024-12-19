@@ -9,7 +9,7 @@
 }
 
 body {
-    background-image: url("background.avif");
+    background-image: linear-gradient(#fff700,#00aaff);
     background-size: cover;
     overflow: auto;
 }
