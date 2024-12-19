@@ -58,7 +58,7 @@
 
                 locTime.innerText = result.location.localtime;
                 daynight.innerText = result.current.is_day ? "Day" : "Night";
-                if (result.current.is_day != 1) { document.body.style.backgroundImage = "url('night-bg.jpg')"; }
+                if (result.current.is_day != 1) { document.body.style.backgroundImage = "linear-gradient(#876FD4,#21134D)"; }
             } else {
                 alert("No weather data available. Please search again.");
                 window.location.href = "index.html"; // Redirect back if no data found
